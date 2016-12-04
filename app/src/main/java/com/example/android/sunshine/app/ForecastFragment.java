@@ -101,8 +101,8 @@ public class ForecastFragment extends Fragment {
              @Override
              public void onItemClick(AdapterView<?> adapterView, View view, int postion, long l) {
                  String forcast = mForecastAdapter.getItem(postion);
-                 Intent intent = new Intent(getActivity(),DetailedActivity.class)
-                                .putExtra("forecast",forcast);
+                 Intent intent = new Intent(getActivity(),DetailActivity.class)
+                                .putExtra(Intent.EXTRA_TEXT,forcast);
                  startActivity(intent);
 
              }
