@@ -1,16 +1,25 @@
 Sunshine
 ========
 
-Sunshine is the companion Android app for the Udacity course [Developing Android Apps: Android Fundamentals](https://www.udacity.com/course/ud853).
+Sunshine is the companion Android app for the Udacity course. I have created this as a part of quiz/tasks.
 
-Take the course to find out how to build this app a step at a time, and eventually create your own Android App!
+It covers the following lessons:
 
-This is the second version of the Sunshine code. The repository has been updated on:
+1.  Create basic app with List View
+2.  Connect to Cloud
+3.  Fragments and Background thread  
+4.  Create Activities and navigate with Intents 
+5.  Activity Lifecycle and Data
+6.  JUnit TestCases 
+7.  Content Providers
+8.  Hooking Content Providers with Loaders 
+9.  Rich and Responsive Layout
+10.  Service and Notifications
 
-* **February 13th, 2015** - Major update
-* February 25, 2015 - Minor bug fixes
-* March 4th, 2015 - Minor bug fixes
 
-For the original version, please go [here](https://github.com/udacity/Sunshine).
 
-A changelog for the course can be found [here](https://docs.google.com/a/knowlabs.com/document/d/193xJb_OpcNCqgquMhxPrMh05IEYFXQqt0S6-6YK8gBw/pub).
+
+
+To run it succesfully, you have to add an api key from http://openweathermap.org/ into build.gradle
+
+Author: kumar.binit1992@gmail.com
