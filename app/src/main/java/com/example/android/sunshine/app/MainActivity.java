@@ -1,14 +1,9 @@
 package com.example.android.sunshine.app;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -48,9 +43,8 @@ public class MainActivity extends ActionBarActivity {
 
             return true;
         }else if(id == R.id.action_openinmap){
-            SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
-            String postalCode= pref.getString(getString(R.string.prefLocationKey),getString(R.string.prefLocationDefault));
 
+            String postalCode = Utility.getPreferredLocation(getApplicationContext());
             // Create a Uri from an intent string. Use the result to create an Intent.
            // Uri gmmIntentUri = Uri.parse("google.streetview:cbll=46.414382,10.013988");
             Uri geoLocation = Uri.parse("geo:0,0?").buildUpon()

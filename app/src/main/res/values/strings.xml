@@ -14,11 +14,11 @@
 
 
     <!-- Label for location preferences -->
-    <string name="prefLocationKey" translatable="false">location</string>
+    <string name="pref_location_key" translatable="false">location</string>
     <!-- Key name for storing location in Shared Preferences  -->
-    <string name="prefLocationLabel">Location</string>
+    <string name="pref_location_label">Location</string>
     <!-- Defuault postal code for location preferences -->
-    <string name="prefLocationDefault" translatable="false">94043</string>
+    <string name="pref_location_default" translatable="false">94043</string>
 
     <string name="prefUnitKey" translatable="false">unit</string>
     <string name="prefUnitLabel">Temperature Units</string>
