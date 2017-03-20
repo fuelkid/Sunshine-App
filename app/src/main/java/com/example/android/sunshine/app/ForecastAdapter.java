@@ -18,7 +18,7 @@ import android.widget.TextView;
 public class ForecastAdapter extends CursorAdapter {
 
     private final int VIEW_TYPE_TODAY = 0;
-    private final int VIEW_TYPE_FUTUREDAY =1;
+    private final int VIEW_TYPE_FUTURE_DAY =1;
 
     public ForecastAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
@@ -36,7 +36,7 @@ public class ForecastAdapter extends CursorAdapter {
         int layout_id = -1;
         if(viewType == VIEW_TYPE_TODAY){
             layout_id = R.layout.list_item_forecast_today;
-        }else if(viewType == VIEW_TYPE_FUTUREDAY){
+        }else if(viewType == VIEW_TYPE_FUTURE_DAY){
             layout_id = R.layout.list_item_forecast;
         }
         View view =  LayoutInflater.from(context).inflate(layout_id, parent, false);
@@ -56,9 +56,21 @@ public class ForecastAdapter extends CursorAdapter {
 
         ViewHolder viewHolder = (ViewHolder)view.getTag();
 
-        // Use the placeholder image for now
-        viewHolder.iconView.setImageResource(R.drawable.ic_launcher);
-
+        int viewType = getItemViewType(cursor.getPosition());
+        switch (viewType) {
+            case VIEW_TYPE_TODAY: {
+                // Get weather icon
+                viewHolder.iconView.setImageResource(Utility.getArtResourceForWeatherCondition(
+                        cursor.getInt(ForecastFragment.COL_WEATHER_CONDITION_ID)));
+                break;
+            }
+            case VIEW_TYPE_FUTURE_DAY: {
+                // Get weather icon
+                viewHolder.iconView.setImageResource(Utility.getIconResourceForWeatherCondition(
+                        cursor.getInt(ForecastFragment.COL_WEATHER_CONDITION_ID)));
+                break;
+            }
+        }
         // Read weather icon id from the cursor
         int weatherId = cursor.getInt(ForecastFragment.COL_WEATHER_ID);
 
@@ -84,7 +96,7 @@ public class ForecastAdapter extends CursorAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        return (position == 0)? VIEW_TYPE_TODAY:VIEW_TYPE_FUTUREDAY;
+        return (position == 0)? VIEW_TYPE_TODAY:VIEW_TYPE_FUTURE_DAY;
     }
 
     @Override
